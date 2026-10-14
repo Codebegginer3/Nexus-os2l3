@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS OS 2 — Web Desktop</title>
+
+    <meta name="description"
+          content="NEXUS OS 2 — A futuristic browser-based desktop environment.">
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="desktop">
+
+        <!-- Desktop Header -->
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-icon">N</span>
+                <span>NEXUS<span class="accent"> OS</span></span>
+                <span class="version">2.0</span>
+            </div>
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+
+            <div class="top-right">
+                <span id="clock">00:00:00</span>
+                <button id="powerButton" class="power-button"
+                        aria-label="Shut down desktop">⏻</button>
+            </div>
+        </header>
+
+        <!-- Desktop Area -->
+        <main class="workspace" id="workspace">
+
+            <section class="welcome">
+                <p class="eyebrow">WELCOME TO YOUR WORKSPACE</p>
+
+                <h1>Beyond the <span>ordinary.</span></h1>
+
+                <p class="welcome-text">
+                    Your digital space. Your rules.
+                </p>
+
+                <div class="system-card">
+                    <div class="system-card-icon">✦</div>
+                    <div>
+                        <strong>NEXUS OS 2.0</strong>
+                        <p>Browser-based desktop environment</p>
+                    </div>
+                    <span class="online-badge">ONLINE</span>
+                </div>
+            </section>
+
+            <!-- Desktop Application Icons -->
+            <nav class="desktop-icons" aria-label="Desktop applications">
+
+                <button class="desktop-icon" data-open="terminal">
+                    <span class="app-icon terminal-icon">&gt;_</span>
+                    <span>Terminal</span>
+                </button>
+
+                <button class="desktop-icon" data-open="files">
+                    <span class="app-icon folder-icon">▰</span>
+                    <span>File Explorer</span>
+                </button>
+
+                <button class="desktop-icon" data-open="about">
+                    <span class="app-icon about-icon">✦</span>
+                    <span>About NEXUS</span>
+                </button>
+
+            </nav>
+
+            <!-- Application Windows -->
+            <section class="window hidden" id="terminal"
+                     data-title="Terminal" aria-label="Terminal window">
+
+                <div class="window-header">
+                    <div class="window-title">
+                        <span class="window-dot"></span>
+                        Terminal
+                    </div>
+
+                    <div class="window-controls">
+                        <button data-minimize aria-label="Minimize">−</button>
+                        <button data-close aria-label="Close">×</button>
+                    </div>
+                </div>
+
+                <div class="window-content terminal-content">
+                    <p class="terminal-line">
+                        NEXUS OS [Version 2.0]
+                    </p>
+                    <p class="terminal-line muted">
+                        Type <strong>help</strong> to see available commands.
+                    </p>
+
+                    <div id="terminalOutput" aria-live="polite"></div>
+
+                    <form id="terminalForm" class="terminal-form">
+                        <label for="terminalInput">nexus@desktop:~$</label>
+                        <input id="terminalInput"
+                               type="text"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-label="Terminal command">
+                    </form>
+                </div>
+            </section>
+
+            <section class="window hidden" id="files"
+                     data-title="File Explorer" aria-label="File Explorer window">
+
+                <div class="window-header">
+                    <div class="window-title">
+                        <span class="window-dot blue-dot"></span>
+                        File Explorer
+                    </div>
+
+                    <div class="window-controls">
+                        <button data-minimize aria-label="Minimize">−</button>
+                        <button data-close aria-label="Close">×</button>
+                    </div>
+                </div>
+
+                <div class="window-content">
+                    <div class="file-path">⌂ &nbsp; /home/nexus</div>
+
+                    <div class="file-list">
+                        <div class="file-item">
+                            <span>📁</span>
+                            <div>
+                                <strong>Documents</strong>
+                                <small>Folder · Demo</small>
+                            </div>
+                        </div>
+
+                        <div class="file-item">
+                            <span>📁</span>
+                            <div>
+                                <strong>Downloads</strong>
+                                <small>Folder · Demo</small>
+                            </div>
+                        </div>
+
+                        <div class="file-item">
+                            <span>📄</span>
+                            <div>
+                                <strong>readme.txt</strong>
+                                <small>Text file · Demo</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="demo-notice">
+                        This is a simulated file explorer.
+                        It does not access your device's files.
+                    </p>
+                </div>
+            </section>
+
+            <section class="window hidden" id="about"
+                     data-title="About NEXUS" aria-label="About NEXUS window">
+
+                <div class="window-header">
+                    <div class="window-title">
+                        <span class="window-dot"></span>
+                        About NEXUS
+                    </div>
+
+                    <div class="window-controls">
+                        <button data-minimize aria-label="Minimize">−</button>
+                        <button data-close aria-label="Close">×</button>
+                    </div>
+                </div>
+
+                <div class="window-content about-content">
+                    <div class="about-logo">N</div>
+
+                    <h2>NEXUS OS <span class="accent">2.0</span></h2>
+
+                    <p>
+                        A modern desktop experience built for the web.
+                    </p>
+
+                    <div class="about-details">
+                        <div><span>Version</span><strong>2.0</strong></div>
+                        <div><span>Platform</span><strong>Web Browser</strong></div>
+                        <div><span>Technology</span><strong>HTML · CSS · JS</strong></div>
+                        <div><span>Status</span><strong class="accent">Online</strong></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shutdown Overlay -->
+            <div id="shutdownOverlay" class="shutdown-overlay hidden">
+                <div class="shutdown-card">
+                    <div class="shutdown-logo">N</div>
+                    <h2>NEXUS OS</h2>
+                    <p>Your session has ended.</p>
+                    <button id="restartButton" class="primary-button">
+                        Restart Desktop
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Dock -->
+        <footer class="dock-area">
+            <div class="dock">
+                <button class="dock-button home-button"
+                        data-open="about" aria-label="About NEXUS">N</button>
+
+                <span class="dock-divider"></span>
+
+                <button class="dock-button"
+                        data-open="terminal" aria-label="Open Terminal">⌘</button>
+
+                <button class="dock-button"
+                        data-open="files" aria-label="Open File Explorer">▰</button>
+
+                <button class="dock-button"
+                        data-open="about" aria-label="Open About">✦</button>
+            </div>
+
+            <div class="dock-caption">NEXUS OS 2.0</div>
+        </footer>
+
+    </div>
+
+</body>
+                          </html>
