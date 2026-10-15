@@ -1,709 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080a12">
-<title>NOVA — AI Discovery Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root {
-  --bg: #080a12;
-  --card: #121624;
-  --purple: #9b7bff;
-  --cyan: #6ce9f2;
-  --text: #f5f7ff;
-  --muted: #a2abc3;
-}
+    <title>Nexora — Next-Gen Intelligence</title>
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background:
-    radial-gradient(ellipse at 80% 0%, #402a7040, transparent 40%),
-    var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button, input {
-  font: inherit;
-}
-
-.container {
-  width: min(1100px, 90%);
-  margin: auto;
-}
-
-/* NAVIGATION */
-
-nav {
-  height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #ffffff15;
-}
-
-.logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 4px;
-  background: linear-gradient(90deg, var(--purple), var(--cyan));
-  color: transparent;
-  background-clip: text;
-}
-
-nav a {
-  color: var(--muted);
-  margin-left: 20px;
-  font-size: 14px;
-}
-
-nav a:hover {
-  color: white;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 540px;
-  display: flex;
-  align-items: center;
-  padding: 70px 0;
-}
-
-.badge {
-  display: inline-block;
-  color: var(--cyan);
-  border: 1px solid #6ce9f244;
-  background: #6ce9f20c;
-  padding: 9px 15px;
-  border-radius: 30px;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-h1 {
-  font-size: clamp(45px, 8vw, 78px);
-  line-height: 1.05;
-  letter-spacing: -3px;
-  margin: 25px 0;
-}
-
-.gradient {
-  background: linear-gradient(90deg, var(--purple), var(--cyan));
-  color: transparent;
-  background-clip: text;
-}
-
-.hero p {
-  max-width: 550px;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 17px;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  margin-right: 10px;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-weight: bold;
-  background: linear-gradient(100deg, var(--purple), var(--cyan));
-  color: #080a12;
-  border: none;
-  cursor: pointer;
-}
-
-.btn.secondary {
-  color: white;
-  background: #ffffff0c;
-  border: 1px solid #ffffff20;
-}
-
-/* STATS */
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin: 20px 0 80px;
-}
-
-.stat {
-  background: #ffffff06;
-  border: 1px solid #ffffff12;
-  padding: 25px 10px;
-  text-align: center;
-  border-radius: 18px;
-}
-
-.stat h2 {
-  color: var(--cyan);
-  font-size: 28px;
-}
-
-.stat p {
-  color: var(--muted);
-  margin-top: 8px;
-  font-size: 13px;
-}
-
-/* TOOL DIRECTORY */
-
-section {
-  padding-bottom: 80px;
-}
-
-.section-title {
-  font-size: clamp(30px, 5vw, 43px);
-  margin-bottom: 12px;
-  letter-spacing: -1px;
-}
-
-.subtitle {
-  color: var(--muted);
-  margin-bottom: 25px;
-  line-height: 1.7;
-}
-
-.search {
-  width: 100%;
-  background: var(--card);
-  border: 1px solid #ffffff20;
-  color: white;
-  padding: 16px;
-  border-radius: 12px;
-  outline: none;
-  margin-bottom: 20px;
-}
-
-.search:focus {
-  border-color: var(--purple);
-}
-
-.filters {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 25px;
-}
-
-.filter {
-  background: #ffffff08;
-  border: 1px solid #ffffff18;
-  color: var(--muted);
-  padding: 10px 15px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.filter.active,
-.filter:hover {
-  background: #9b7bff25;
-  color: white;
-  border-color: var(--purple);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 17px;
-}
-
-.tool {
-  background: linear-gradient(145deg, #171b2b, #0e111b);
-  border: 1px solid #ffffff12;
-  border-radius: 18px;
-  padding: 23px;
-  transition: .25s;
-  display: flex;
-  flex-direction: column;
-  min-height: 230px;
-}
-
-.tool:hover {
-  transform: translateY(-5px);
-  border-color: #9b7bff80;
-  box-shadow: 0 15px 35px #0005;
-}
-
-.tool-icon {
-  font-size: 28px;
-  margin-bottom: 18px;
-}
-
-.tool h3 {
-  margin-bottom: 10px;
-  font-size: 19px;
-}
-
-.tool p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
-  flex: 1;
-}
-
-.tool-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  gap: 8px;
-}
-
-.category {
-  font-size: 11px;
-  color: #c6b5ff;
-  background: #9b7bff18;
-  padding: 6px 9px;
-  border-radius: 20px;
-}
-
-.visit {
-  color: var(--cyan);
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.save {
-  background: transparent;
-  color: white;
-  border: 1px solid #ffffff25;
-  padding: 5px 9px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.empty {
-  color: var(--muted);
-  padding: 30px 0;
-}
-
-/* ABOUT */
-
-.about {
-  background: linear-gradient(120deg, #18162c, #111927);
-  border: 1px solid #ffffff15;
-  border-radius: 25px;
-  padding: 35px;
-  margin-bottom: 80px;
-}
-
-.about h2 {
-  font-size: 35px;
-  margin-bottom: 15px;
-}
-
-.about p {
-  color: var(--muted);
-  line-height: 1.9;
-  max-width: 650px;
-}
-
-/* FOOTER */
-
-footer {
-  border-top: 1px solid #ffffff15;
-  padding: 30px 0;
-  color: var(--muted);
-  font-size: 13px;
-  text-align: center;
-}
-
-footer .logo {
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-/* MOBILE */
-
-@media (max-width: 750px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero {
-    min-height: auto;
-    padding: 80px 0;
-  }
-
-  nav a {
-    margin-left: 8px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats {
-    gap: 8px;
-  }
-
-  .stat {
-    padding: 18px 5px;
-  }
-
-  .stat h2 {
-    font-size: 23px;
-  }
-
-  .stat p {
-    font-size: 11px;
-  }
-
-  nav {
-    height: auto;
-    min-height: 70px;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 15px 0;
-  }
-
-  nav a {
-    margin-left: 8px;
-  }
-
-  .about {
-    padding: 25px;
-  }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="container">
-  <nav>
-    <a class="logo" href="#">NOVA.</a>
+<header class="navbar">
 
-    <div>
-      <a href="#home">Home</a>
-      <a href="#discover">Discover</a>
-      <a href="#about">About</a>
-    </div>
-  </nav>
+    <a href="#" class="brand">
+        <span class="logo">✳</span>
+        Nexora
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#resources">Resources⌄</a>
+        <a href="#login">Login</a>
+        <a href="#get-started" class="nav-button">
+            Get Started Free
+        </a>
+    </nav>
+
 </header>
+
 
 <main>
 
-<div class="container">
+<section class="hero" id="features">
 
-  <section class="hero" id="home">
-    <div>
-      <span class="badge">✦ THE AI DISCOVERY HUB</span>
-
-      <h1>
-        Find your next<br>
-        <span class="gradient">superpower.</span>
-      </h1>
-
-      <p>
-        Discover powerful tools for creativity, coding,
-        learning, and productivity. Less searching.
-        More creating. Your next big idea starts here.
-      </p>
-
-      <a class="btn" href="#discover">Explore tools ↗</a>
-      <a class="btn secondary" href="#about">Discover NOVA</a>
-    </div>
-  </section>
-
-  <div class="stats">
-    <div class="stat">
-      <h2>12+</h2>
-      <p>Useful tools</p>
+    <div class="light-effects">
+        <div class="light light-one"></div>
+        <div class="light light-two"></div>
+        <div class="light light-three"></div>
+        <div class="light light-four"></div>
+        <div class="light light-five"></div>
     </div>
 
-    <div class="stat">
-      <h2>04</h2>
-      <p>Categories</p>
+    <div class="hero-content">
+
+        <div class="badge">
+            <span></span>
+            NEXT-GEN INTELLIGENCE LAYER
+            <span></span>
+        </div>
+
+        <h1>
+            Automate complexity.
+            <span>Scale exponentially.</span>
+        </h1>
+
+        <p class="description">
+            Nexora's unified operational platform optimizes
+            processes from data to decision, for unparalleled
+            efficiency and growth.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#get-started" class="button primary">
+                Get Started Free
+            </a>
+
+            <button class="button secondary" id="demoButton">
+                View Demo <span>▷</span>
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-frame" id="dashboard">
+
+            <div class="dashboard">
+
+                <aside class="sidebar">
+
+                    <div class="side-logo">✳</div>
+
+                    <div class="side-item active">
+                        ▦
+                        <small>Dashboard</small>
+                    </div>
+
+                    <div class="side-item">
+                        ◈
+                        <small>Systems</small>
+                    </div>
+
+                    <div class="side-item">
+                        ⌁
+                        <small>Insights</small>
+                    </div>
+
+                    <div class="side-item">
+                        ◉
+                        <small>Optimize</small>
+                    </div>
+
+                </aside>
+
+
+                <div class="dashboard-main">
+
+                    <div class="dashboard-heading">
+                        <span>Nexora Core: Workflow Control</span>
+                        <small>● LIVE</small>
+                    </div>
+
+                    <div class="workflow">
+
+                        <div class="workflow-card ingestion">
+                            <span class="card-icon">↧</span>
+                            <h3>1. Data Ingestion</h3>
+                            <p>Data sources connected</p>
+                            <div class="progress">
+                                <span></span>
+                            </div>
+                        </div>
+
+
+                        <div class="workflow-card analysis">
+                            <span class="card-icon">✧</span>
+                            <h3>2. Cognitive Analysis</h3>
+                            <p>AI engine active</p>
+
+                            <div class="chart-bars">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+
+                            <div class="card-footer">
+                                Analysis score
+                                <strong>94.8%</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="workflow-card forecast">
+                            <span class="card-icon">⌁</span>
+                            <h3>3. Decisioning &amp; Forecasting</h3>
+                            <p>Predictive model</p>
+
+                            <svg viewBox="0 0 120 40">
+                                <path d="M2 32 L20 24 L34 29 L48 13 L62 22 L78 8 L91 16 L108 3 L118 7"/>
+                            </svg>
+
+                            <div class="card-footer">
+                                Accuracy
+                                <strong>+18.4%</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="workflow-card execution">
+                            <span class="card-icon">↗</span>
+                            <h3>4. Automated Execution</h3>
+                            <p>Actions deployed</p>
+
+                            <div class="status">
+                                ● Optimized
+                            </div>
+                        </div>
+
+
+                        <div class="metric metric-one">
+                            <p>Efficiency gain</p>
+                            <strong>+42.8%</strong>
+                        </div>
+
+                        <div class="metric metric-two">
+                            <p>Process health</p>
+                            <strong>98.6%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="play-button" id="playButton">
+                ▶
+            </button>
+
+        </div>
+
     </div>
 
-    <div class="stat">
-      <h2>∞</h2>
-      <p>Ideas to explore</p>
-    </div>
-  </div>
+</section>
 
-  <section id="discover">
-    <h2 class="section-title">
-      Discover <span class="gradient">your tools.</span>
-    </h2>
 
-    <p class="subtitle">
-      Search the directory or choose a category.
-    </p>
+<section class="below" id="pricing">
+    <span></span>
+    INTELLIGENCE THAT MOVES YOUR BUSINESS FORWARD
+    <span></span>
+</section>
 
-    <input
-      class="search"
-      id="search"
-      type="search"
-      placeholder="⌕  Search AI tools..."
-      aria-label="Search AI tools"
-    >
+<section class="extra-section" id="resources">
+    <h2>Built for intelligent operations.</h2>
+    <p>One platform. Smarter workflows. Better decisions.</p>
+</section>
 
-    <div class="filters">
-      <button class="filter active" data-category="All">All</button>
-      <button class="filter" data-category="Create">✦ Create</button>
-      <button class="filter" data-category="Code">⌘ Code</button>
-      <button class="filter" data-category="Learn">◎ Learn</button>
-      <button class="filter" data-category="Productivity">↗ Productivity</button>
-      <button class="filter" data-category="Saved">♡ Saved</button>
-    </div>
+<div id="login"></div>
+<div id="get-started"></div>
 
-    <div class="grid" id="grid"></div>
-  </section>
-
-  <section class="about" id="about">
-    <span class="badge">WHY NOVA?</span>
-
-    <h2 style="margin-top:20px">
-      Ideas deserve <span class="gradient">better tools.</span>
-    </h2>
-
-    <p>
-      NOVA is a curated starting point for people who love
-      learning, building, and experimenting. Find a tool,
-      explore its possibilities, and turn your next idea
-      into something real.
-    </p>
-
-    <a class="btn" href="#discover">Start exploring ↗</a>
-  </section>
-
-</div>
 </main>
 
-<footer>
-  <div class="container">
-    <a class="logo" href="#home">NOVA.</a>
-    <p>Built for curious minds. © <span id="year"></span> NOVA.</p>
-  </div>
-</footer>
+<div class="toast" id="toast"></div>
 
-<script>
-const tools = [
-  {
-    name: "ChatGPT",
-    icon: "✳",
-    category: "Productivity",
-    description: "Explore ideas, learn concepts, write, and solve problems.",
-    url: "https://chatgpt.com/"
-  },
-  {
-    name: "Claude",
-    icon: "✴",
-    category: "Productivity",
-    description: "Get help with writing, analysis, and complex tasks.",
-    url: "https://claude.ai/"
-  },
-  {
-    name: "Perplexity",
-    icon: "⌕",
-    category: "Learn",
-    description: "Research topics with answers linked to sources.",
-    url: "https://www.perplexity.ai/"
-  },
-  {
-    name: "Canva",
-    icon: "◉",
-    category: "Create",
-    description: "Design posters, presentations, and social graphics.",
-    url: "https://www.canva.com/"
-  },
-  {
-    name: "Figma",
-    icon: "◈",
-    category: "Create",
-    description: "Design website interfaces and digital products.",
-    url: "https://www.figma.com/"
-  },
-  {
-    name: "Adobe Firefly",
-    icon: "✺",
-    category: "Create",
-    description: "Explore generative AI features for visual creativity.",
-    url: "https://firefly.adobe.com/"
-  },
-  {
-    name: "GitHub",
-    icon: "⌘",
-    category: "Code",
-    description: "Host code, manage projects, and collaborate.",
-    url: "https://github.com/"
-  },
-  {
-    name: "Replit",
-    icon: "▶",
-    category: "Code",
-    description: "Build and run projects in an online workspace.",
-    url: "https://replit.com/"
-  },
-  {
-    name: "CodePen",
-    icon: "⟡",
-    category: "Code",
-    description: "Experiment with HTML, CSS, and JavaScript.",
-    url: "https://codepen.io/"
-  },
-  {
-    name: "Khan Academy",
-    icon: "⌂",
-    category: "Learn",
-    description: "Practice subjects through lessons and exercises.",
-    url: "https://www.khanacademy.org/"
-  },
-  {
-    name: "Coursera",
-    icon: "▤",
-    category: "Learn",
-    description: "Explore online courses and learn new skills.",
-    url: "https://www.coursera.org/"
-  },
-  {
-    name: "Notion",
-    icon: "▦",
-    category: "Productivity",
-    description: "Organize notes, plans, and projects in one place.",
-    url: "https://www.notion.so/"
-  }
-];
-
-const grid = document.getElementById("grid");
-const search = document.getElementById("search");
-
-let activeCategory = "All";
-let saved = [];
-
-try {
-  saved = JSON.parse(localStorage.getItem("nova-saved") || "[]");
-} catch (error) {
-  saved = [];
-}
-
-function renderTools() {
-  const query = search.value.toLowerCase().trim();
-
-  const filtered = tools.filter(tool => {
-    const matchesCategory =
-      activeCategory === "All" ||
-      (activeCategory === "Saved"
-        ? saved.includes(tool.name)
-        : tool.category === activeCategory);
-
-    const matchesSearch =
-      (tool.name + " " + tool.description + " " + tool.category)
-      .toLowerCase()
-      .includes(query);
-
-    return matchesCategory && matchesSearch;
-  });
-
-  grid.replaceChildren();
-
-  if (filtered.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "empty";
-    empty.textContent = "No tools found. Try another search.";
-    grid.appendChild(empty);
-    return;
-  }
-
-  filtered.forEach(tool => {
-    const card = document.createElement("article");
-    card.className = "tool";
-
-    const icon = document.createElement("div");
-    icon.className = "tool-icon";
-    icon.textContent = tool.icon;
-
-    const title = document.createElement("h3");
-    title.textContent = tool.name;
-
-    const description = document.createElement("p");
-    description.textContent = tool.description;
-
-    const footer = document.createElement("div");
-    footer.className = "tool-footer";
-
-    const category = document.createElement("span");
-    category.className = "category";
-    category.textContent = tool.category;
-
-    const actions = document.createElement("div");
-
-    const visit = document.createElement("a");
-    visit.className = "visit";
-    visit.href = tool.url;
-    visit.target = "_blank";
-    visit.rel = "noopener noreferrer";
-    visit.textContent = "Visit ↗";
-
-    const saveButton = document.createElement("button");
-    saveButton.className = "save";
-    saveButton.textContent = saved.includes(tool.name) ? "♥" : "♡";
-    saveButton.setAttribute("aria-label", "Save " + tool.name);
-
-    saveButton.addEventListener("click", () => {
-      if (saved.includes(tool.name)) {
-        saved = saved.filter(name => name !== tool.name);
-      } else {
-        saved.push(tool.name);
-      }
-
-      try {
-        localStorage.setItem("nova-saved", JSON.stringify(saved));
-      } catch (error) {}
-
-      renderTools();
-    });
-
-    actions.append(visit, document.createTextNode(" "), saveButton);
-    footer.append(category, actions);
-    card.append(icon, title, description, footer);
-    grid.appendChild(card);
-  });
-}
-
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".filter").forEach(item => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
-    activeCategory = button.dataset.category;
-    renderTools();
-  });
-});
-
-search.addEventListener("input", renderTools);
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-renderTools();
-</script>
+<script src="script.js"></script>
 
 </body>
-    </html>
+</html>
